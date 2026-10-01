@@ -1,5 +1,5 @@
 def add(a,b):
-    print("adding")
+    print("add",a,b)
     return a+b
 print(add(4,3))
 
