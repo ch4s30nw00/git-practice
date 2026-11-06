@@ -1,0 +1,29 @@
+name: Shell Command #워크플로우 ID
+on: workflow_dispatch #event trigger
+jobs: #task 단위
+  run: #job ID, 사용자 임의로 작성가능
+    runs-on: ubuntu-latest #실행환경
+    steps: #실행최소단위
+      - name: Check environment #step1의ID
+        run: | #여러 shell command 실행
+          echo "Current directory:"
+          pwd
+          echo "File list:"
+          ls -la
+      - name: Check file #step2의 ID
+        run: |
+          if [ -f "README.md" ]; then
+            echo "File exists"
+          else
+            echo "File not found"
+          fi
+      - name: Repeat commands #step3의 ID
+        run: |
+          for i in 1 2 3
+          do
+            echo "Test $i" #달러표시는 참조표시
+          done
+      - name: Use environment variable #step4의 ID
+        env: #환경변수
+          MESSAGE: Hello!!
+        run: echo "$MESSAGE"
