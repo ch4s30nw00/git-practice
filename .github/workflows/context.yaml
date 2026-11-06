@@ -1,0 +1,15 @@
+name: Contexts
+on: push
+jobs:
+  print: #job id, runner id name
+    runs-on: ubuntu-latest #runner 실행환경 설정
+    steps: #runner's task
+      - run: echo "${{ github.actor }}
+      - name Github Context
+    run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+
