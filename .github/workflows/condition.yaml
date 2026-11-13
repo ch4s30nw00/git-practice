@@ -11,6 +11,6 @@ jobs:
         if: ${{  contains(github.run_id, '1')  }}
         run: echo "Hello"
 
-        - name: Print Goodbye
+      - name: Print Goodbye
         run: echo "Goodbye"
         if: ${{ !contains(github.run_id, '1') }}
