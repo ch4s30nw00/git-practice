@@ -1,0 +1,18 @@
+name: Issue Create Example
+on: push
+permissions:
+  issues: write
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Create Issue with GitHub CLI
+        run: |
+          gh api \
+            --method POST \
+            "repos/$GITHUB_REPOSITORY/issues" \
+            -f title="Auto issue from push" \
+            -f body="Hello World" \
+            --jq '.html_url'
